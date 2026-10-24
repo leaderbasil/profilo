@@ -216,10 +216,11 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .work .card:nth-child(2),.work .card:nth-child(4){--d:.12s}
 .tools .card:nth-child(2){--d:.1s}.tools .card:nth-child(3){--d:.2s}.tools .card:nth-child(4){--d:.3s}.tools .card:nth-child(5){--d:.4s}
 @keyframes rise{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes riseB{from{opacity:0;transform:translateY(30px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes riseB{from{opacity:0;transform:translateY(26px);filter:blur(4px)}to{opacity:1;transform:none;filter:blur(0)}}
 @keyframes riseL{from{opacity:0;transform:translateX(-36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes riseR{from{opacity:0;transform:translateX(36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.js .ent{opacity:0;animation:riseB .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--e,0)*110ms + 80ms)}
+.js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--e,0)*110ms + 80ms)}
+.js .hero-photo.ent{animation-name:rise}
 .js h2.rv::after{content:"";display:block;height:4px;width:0;margin-top:10px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--vio));transition:width .8s cubic-bezier(.2,.7,.2,1) .3s}
 .js h2.rv.in::after{width:56px}
 @media (min-width:900px){.tools .card:nth-child(5){grid-column:span 2}}
