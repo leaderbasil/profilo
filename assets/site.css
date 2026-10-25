@@ -250,3 +250,8 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .page-hero>*{min-width:0}
 @media (max-width:900px){.page-hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.console{font-size:12px}.console .body{padding:14px 14px 16px}}
+
+.avail{position:relative;display:inline-flex;align-items:center;gap:11px;margin:0 0 20px;padding:9px 17px 9px 14px;border-radius:999px;border:1px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(34,160,107,.75),rgba(30,144,255,.55) 55%,rgba(139,92,246,.7)) border-box;box-shadow:0 14px 32px -22px rgba(30,144,255,.85),inset 0 1px 0 rgba(255,255,255,.06);font:700 12px/1 "IBM Plex Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--ink)}
+.avail .ping{position:relative;width:8px;height:8px;border-radius:50%;background:#22a06b;flex:none;box-shadow:0 0 0 3px rgba(34,160,107,.14),0 0 12px rgba(34,160,107,.55)}
+.avail .ping::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(34,160,107,.45);animation:availPing 2.8s cubic-bezier(0,0,.2,1) infinite}
+@keyframes availPing{0%{transform:scale(.55);opacity:.85}70%,100%{transform:scale(2.1);opacity:0}}
