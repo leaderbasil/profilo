@@ -31,7 +31,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .hero-text{grid-area:tx;min-width:0}
 .about-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,470px);gap:clamp(28px,5vw,56px);align-items:start}
 .about-wrap .about{max-width:none}
-#about{padding-top:clamp(62px,8.5vw,108px)}
+#about{padding-top:clamp(46px,6.5vw,82px)}
 .loc{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;color:var(--accink);font:700 13px/1 "IBM Plex Sans",sans-serif;letter-spacing:.1em;text-transform:uppercase}
 .loc svg{width:16px;height:16px}
 .quick{display:flex;gap:14px 24px;flex-wrap:wrap;margin-top:28px;font-size:15px}
@@ -255,3 +255,16 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .avail .ping{position:relative;width:8px;height:8px;border-radius:50%;background:#22a06b;flex:none;box-shadow:0 0 0 3px rgba(34,160,107,.14),0 0 12px rgba(34,160,107,.55)}
 .avail .ping::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(34,160,107,.45);animation:availPing 2.8s cubic-bezier(0,0,.2,1) infinite}
 @keyframes availPing{0%{transform:scale(.55);opacity:.85}70%,100%{transform:scale(2.1);opacity:0}}
+
+.svc .price{position:absolute;top:20px;right:20px;padding:6px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--accink);font:800 15px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.offer{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-top:20px;padding:clamp(22px,3.2vw,32px);border-radius:18px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(30,144,255,.10),rgba(139,92,246,.12)),var(--surface);box-shadow:0 18px 44px -34px rgba(11,20,38,.5)}
+.offer-copy{max-width:70ch}
+.offer h3{font:700 clamp(20px,2.7vw,26px)/1.2 "Bricolage Grotesque",sans-serif;margin:0 0 8px;letter-spacing:-.01em}
+.offer p{margin:0;color:var(--mute)}
+.offer-price{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.offer-price b{font:800 clamp(32px,4vw,42px)/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em}
+.offer-price span{color:var(--mute);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.offer-price .btn{margin-top:12px}
+@media (max-width:560px){.offer-price{width:100%}.offer-price .btn{width:100%}}
+
+@media (min-width:821px) and (max-width:1100px){.hero .cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hero .cta .btn{width:100%;padding:0 14px}}
