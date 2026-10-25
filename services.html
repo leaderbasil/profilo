@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -43,7 +43,6 @@
 <main id="top" class="wrap">
 <div class="page-hero">
 <div class="page-hero-text">
-<p class="avail ent" style="--e:0"><span class="ping" aria-hidden="true"></span>Available for freelance projects</p>
 <h1 class="ent" style="--e:1">Freelance software, built around your work.</h1>
 <p class="role ent" style="--e:2">Internal tools · ERP · AI features · Websites</p>
 <p class="lead ent" style="--e:3">I build the software a team uses to run its work: an internal tool, an ERP module, a customer portal, or a portfolio site that has to load fast and read well.<span class="lp">You work directly with me from the first call to the handover. The scope and the price are agreed in writing before the work starts, and you see working software every week or two.</span></p>
@@ -57,6 +56,8 @@
 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"/></svg>English or Arabic</span>
 </div>
 </div>
+<div class="console-wrap">
+<p class="avail avail-float ent" style="--e:0"><span class="shine" aria-hidden="true"></span>Available for freelance projects</p>
 <div class="console ent" style="--e:2" role="img" aria-label="A sample project request: internal tool for an operations team, fixed scope, 1 to 6 weeks">
 <div class="top" aria-hidden="true"><b></b><b></b><b></b></div>
 <div class="body">
@@ -74,7 +75,7 @@
 
 <section id="services">
 <h2 class="rv">What I take on</h2>
-<p class="sub rv" style="--d:.05s">Most engagements start with one of these. If yours is close, send a short description and I will tell you what it takes.</p>
+<p class="sub svc-intro rv" style="--d:.05s">Most engagements start with one of these. If yours is close, send a short description and I will tell you what it takes.</p>
 <div class="svc-grid">
 <article class="card svc rv">
 <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h8M16 7h4M4 12h4M12 12h8M4 17h10M18 17h2"/><circle cx="14" cy="7" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="16" cy="17" r="2"/></svg></span>
@@ -181,15 +182,31 @@
 <p class="sub" style="font-size:15px;margin-top:18px">A useful first message includes the problem, who uses it, your deadline, and a budget range if you have one.</p>
 </div>
 <form class="cform rv" id="cform" style="--d:.15s" novalidate>
-<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg><span>This form opens your own email client with the message pre-filled. Nothing is sent to a server.</span></p>
+<p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg><span>This form sends your message straight to my inbox. I usually reply within one working day.</span></p>
 <div class="row2">
 <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name"></label>
 <label for="f-email">Your email<input id="f-email" name="email" type="email" autocomplete="email"></label>
 </div>
+<label for="f-service">What do you need?</label>
+<select id="f-service" name="service" autocomplete="off">
+<option value="Portfolio and personal websites" data-estimate="$50 fixed">Portfolio and personal website, $50</option>
+<option value="Landing page or marketing site" data-estimate="From $150">Landing page or marketing site, from $150</option>
+<option value="Internal tools and operations software" data-estimate="From $400" selected>Internal tool or operations software, from $400</option>
+<option value="Customer portals and web applications" data-estimate="From $500">Customer portal or web app, from $500</option>
+<option value="ERP modules and business systems" data-estimate="From $600">ERP module or business system, from $600</option>
+<option value="AI features that reduce manual review" data-estimate="From $300">AI feature or automation, from $300</option>
+<option value="Mobile and desktop applications" data-estimate="From $700">Mobile or desktop app, from $700</option>
+<option value="Automation and reporting" data-estimate="From $250">Automation and reporting, from $250</option>
+<option value="Ongoing support and improvements" data-estimate="From $120/mo">Ongoing support, from $120/mo</option>
+<option value="Not sure yet" data-estimate="Custom quote">Something else or not sure</option>
+</select>
+<div class="estimate" id="estimate" aria-live="polite"><span class="est-k">Estimated budget</span><b id="estimate-val">From $400</b><span class="est-note">Final quote after a short scope call</span></div>
+<input type="hidden" name="estimate" id="f-estimate" value="From $400">
 <label for="f-subject">Subject<input id="f-subject" name="subject" value="Project inquiry: Basil Ayyad"></label>
 <label for="f-message">What do you need built?<textarea id="f-message" name="message" rows="6" placeholder="The problem, who uses it, your deadline, and a budget range if you have one."></textarea></label>
+<p class="consent">By sending this message you agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>.</p>
 <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
-<button class="btn main" type="submit" data-track="services-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="m21 3-9.2 9.2M21 3l-6.3 18-3.6-8.1L3 9.3z"/></svg><span>Open in email app</span></button>
+<button class="btn main" type="submit" data-track="services-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="m21 3-9.2 9.2M21 3l-6.3 18-3.6-8.1L3 9.3z"/></svg><span>Send message</span></button>
 </form>
 </div>
 </section>
@@ -197,7 +214,7 @@
 
 <footer><div class="wrap foot">
 <a class="flogo" href="index.html">Basil Ayyad</a>
-<nav class="fnav" aria-label="Footer"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="services.html">Services</a><a href="#contact">Contact</a></nav>
+<nav class="fnav" aria-label="Footer"><a href="index.html">Home</a><a href="index.html#about">About</a><a href="index.html#work">Work</a><a href="services.html">Services</a><a href="#contact">Contact</a><a href="terms.html">Terms</a></nav>
 <div class="fsoc">
 <a href="mailto:leaderbasil@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg></a>
 <a href="https://github.com/leaderbasil" target="_blank" rel="noopener" data-track="github" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
@@ -211,11 +228,18 @@
 <script>
 (function(){
 var cf=document.getElementById('cform');
-if(cf){cf.addEventListener('submit',function(ev){ev.preventDefault();var g=function(id){var el=document.getElementById(id);return el?el.value.trim():''};var m=document.getElementById('cf-msg');var name=g('f-name'),mail=g('f-email'),txt=g('f-message');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+if(cf){
+var sel=document.getElementById('f-service'),estVal=document.getElementById('estimate-val'),estIn=document.getElementById('f-estimate'),estBox=document.getElementById('estimate');
+function syncEst(){if(!sel)return;var o=sel.options[sel.selectedIndex],v=(o&&o.getAttribute('data-estimate'))||'Custom quote';if(estVal)estVal.textContent=v;if(estIn)estIn.value=v;if(estBox){estBox.classList.remove('pop');void estBox.offsetWidth;estBox.classList.add('pop')}}
+if(sel){sel.addEventListener('change',syncEst);syncEst()}
+cf.addEventListener('submit',function(ev){ev.preventDefault();var g=function(id){var el=document.getElementById(id);return el?el.value.trim():''};var m=document.getElementById('cf-msg');var name=g('f-name'),mail=g('f-email'),txt=g('f-message'),service=g('f-service'),estimate=g('f-estimate');var ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
 if(!name||!ok||!txt){m.textContent='Please add your name, a valid email address, and a message.';m.className='cf-msg err';return}
-m.textContent='Opening your email app…';m.className='cf-msg ok';
-var s=g('f-subject')||'Project inquiry: Basil Ayyad';var body='Name: '+name+'\nEmail: '+mail+'\n\n'+txt;
-location.href='mailto:leaderbasil@gmail.com?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(body)})}
+var btn=cf.querySelector('button[type="submit"]'),lab=btn.querySelector('span'),old=lab.textContent;
+btn.disabled=true;lab.textContent='Sending…';m.textContent='';m.className='cf-msg';
+var subject=g('f-subject')||'Project inquiry: Basil Ayyad';
+var payload={name:name,email:mail,service:service,estimate:estimate,message:txt,page:location.href,_subject:subject+' ('+name+')',_replyto:mail,_template:'table',_captcha:'false',_honey:''};
+fetch('https://formsubmit.co/ajax/leaderbasil@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,d:d}})}).then(function(res){if(res.ok&&(res.d.success===true||res.d.success==='true')){m.textContent='Message sent. I will reply to '+mail+' within one working day.';m.className='cf-msg ok';cf.reset();syncEst()}else{throw new Error((res.d&&res.d.message)||'Send failed')}}).catch(function(){var body='Name: '+name+'\nEmail: '+mail+'\nService: '+service+'\nEstimated budget: '+estimate+'\n\n'+txt;var href='mailto:leaderbasil@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);m.textContent='The direct send did not go through. ';var a=document.createElement('a');a.href=href;a.textContent='Open your email app instead';m.appendChild(a);m.appendChild(document.createTextNode('.'));m.className='cf-msg err'}).then(function(){btn.disabled=false;lab.textContent=old})});
+}
 function trackCv(){if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'cv-download',title:'CV download',event:true})}
 document.querySelectorAll('[data-cv]').forEach(function(a){a.addEventListener('click',trackCv)});
 document.querySelectorAll('[data-track]').forEach(function(a){a.addEventListener('click',function(){if(window.goatcounter&&goatcounter.count)goatcounter.count({path:a.getAttribute('data-track'),title:a.textContent.trim(),event:true})})});

@@ -39,8 +39,6 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .quick a:hover{color:var(--accink)}
 .quick svg{width:15px;height:15px;flex:none}
 .status{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:14px;color:var(--mute);margin-bottom:20px}
-.status i{width:8px;height:8px;border-radius:50%;background:#22a06b;animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,160,107,.5)}70%,100%{box-shadow:0 0 0 8px rgba(34,160,107,0)}}
 h1{font:800 clamp(36px,5.4vw,58px)/1.04 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin:0 0 14px}
 .role{font:700 clamp(18px,2.6vw,22px) "Bricolage Grotesque",sans-serif;color:var(--accink);margin:0 0 16px}
 .lead{font-size:clamp(17px,2.2vw,19px);color:var(--mute);max-width:52ch;margin:0}
@@ -203,7 +201,6 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .freelance-card{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(30,144,255,.10),rgba(139,92,246,.12)),var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.5vw,34px);box-shadow:0 18px 44px -34px rgba(11,20,38,.5)}
 .freelance-copy{max-width:72ch}
 .fc-kicker{display:inline-flex;align-items:center;gap:8px;margin:0 0 12px;color:var(--accink);font:700 12.5px/1 "IBM Plex Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase}
-.fc-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#22a06b;box-shadow:0 0 0 4px rgba(34,160,107,.15)}
 .freelance-card h3{font:700 clamp(21px,3vw,27px)/1.2 "Bricolage Grotesque",sans-serif;margin:0 0 8px;letter-spacing:-.01em}
 .freelance-card p{margin:0;color:var(--mute)}
 
@@ -251,10 +248,7 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 @media (max-width:900px){.page-hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.console{font-size:12px}.console .body{padding:14px 14px 16px}}
 
-.avail{position:relative;display:inline-flex;align-items:center;gap:11px;margin:0 0 20px;padding:9px 17px 9px 14px;border-radius:999px;border:1px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(34,160,107,.75),rgba(30,144,255,.55) 55%,rgba(139,92,246,.7)) border-box;box-shadow:0 14px 32px -22px rgba(30,144,255,.85),inset 0 1px 0 rgba(255,255,255,.06);font:700 12px/1 "IBM Plex Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--ink)}
-.avail .ping{position:relative;width:8px;height:8px;border-radius:50%;background:#22a06b;flex:none;box-shadow:0 0 0 3px rgba(34,160,107,.14),0 0 12px rgba(34,160,107,.55)}
-.avail .ping::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(34,160,107,.45);animation:availPing 2.8s cubic-bezier(0,0,.2,1) infinite}
-@keyframes availPing{0%{transform:scale(.55);opacity:.85}70%,100%{transform:scale(2.1);opacity:0}}
+.avail{position:relative;display:inline-flex;align-items:center;gap:11px;margin:0 0 20px;padding:9px 17px;border-radius:999px;border:1px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(30,144,255,.75),rgba(139,92,246,.7) 55%,rgba(30,144,255,.55)) border-box;box-shadow:0 14px 32px -22px rgba(30,144,255,.85),inset 0 1px 0 rgba(255,255,255,.06);font:700 12px/1 "IBM Plex Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--ink)}
 
 .svc .price{position:absolute;top:20px;right:20px;padding:6px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--accink);font:800 15px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
 .offer{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-top:20px;padding:clamp(22px,3.2vw,32px);border-radius:18px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(30,144,255,.10),rgba(139,92,246,.12)),var(--surface);box-shadow:0 18px 44px -34px rgba(11,20,38,.5)}
@@ -268,3 +262,50 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 @media (max-width:560px){.offer-price{width:100%}.offer-price .btn{width:100%}}
 
 @media (min-width:821px) and (max-width:1100px){.hero .cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hero .cta .btn{width:100%;padding:0 14px}}
+
+/* ---------- Console card wrapper and availability badge ---------- */
+.console-wrap{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.console-wrap .console{width:100%}
+.avail-float{overflow:visible;animation:availFloat 7s ease-in-out infinite;will-change:transform}
+.avail-float .shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
+.avail-float .shine::before{content:"";position:absolute;top:-70%;bottom:-70%;left:0;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-240%) rotate(10deg);animation:availSheen 7s ease-in-out infinite}
+:root[data-theme="dark"] .avail-float .shine::before{background:linear-gradient(100deg,transparent,rgba(255,255,255,.24),transparent)}
+@keyframes availFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes availSheen{0%,58%{transform:translateX(-240%) rotate(10deg)}78%,100%{transform:translateX(340%) rotate(10deg)}}
+
+/* ---------- Contact form: service picker and estimate ---------- */
+.cform select{display:block;width:100%;margin-top:8px;padding:12px 42px 12px 14px;border:1px solid var(--line);border-radius:9px;background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2353627a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:15px;color:var(--ink);font:400 15.5px "IBM Plex Sans",sans-serif;appearance:none;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.cform select:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(30,144,255,.18)}
+:root[data-theme="dark"] .cform select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239aaac2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")}
+.estimate{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;margin:-4px 0 18px;padding:12px 16px;border-radius:12px;border:1px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(30,144,255,.55),rgba(139,92,246,.5) 55%,rgba(30,144,255,.45)) border-box;box-shadow:0 14px 30px -26px rgba(30,144,255,.8)}
+.estimate .est-k{font:700 10.5px/1 "IBM Plex Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--mute)}
+.estimate b{font:800 21px/1 "Bricolage Grotesque",sans-serif;color:var(--accink);letter-spacing:-.01em}
+.estimate .est-note{margin-left:auto;color:var(--mute);font-size:12.5px}
+.estimate.pop b{animation:estPop .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes estPop{0%{transform:scale(.92);opacity:.55}100%{transform:none;opacity:1}}
+.cform .consent{margin:-2px 0 16px;color:var(--mute);font-size:13px;line-height:1.55}
+.cform .consent a{color:var(--accink);text-decoration:underline;text-underline-offset:2px}
+@media (max-width:560px){.estimate .est-note{margin-left:0;width:100%}.estimate b{font-size:19px}}
+
+/* ---------- Terms page ---------- */
+.legal-hero{padding:clamp(36px,6vw,72px) 0 0;max-width:82ch}
+.legal-hero h1{font-size:clamp(34px,5vw,54px);margin-bottom:16px}
+.legal-hero .lead{max-width:68ch}
+.legal-meta{margin:18px 0 0;color:var(--mute);font-size:14px}
+.legal-summary{margin:28px 0 0;padding:20px 22px;border-radius:14px;border:1px solid var(--line);background:var(--surface);box-shadow:0 16px 34px -30px rgba(11,20,38,.55)}
+.legal-summary b{display:block;font:700 17px "Bricolage Grotesque",sans-serif;margin-bottom:10px}
+.legal-summary ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--mute);font-size:15px}
+.legal{max-width:82ch;padding:clamp(10px,2vw,18px) 0 clamp(30px,5vw,60px)}
+.legal h2{font-size:clamp(21px,2.6vw,25px);margin:38px 0 12px;letter-spacing:-.01em}
+.legal h2:first-child{margin-top:0}
+.legal p,.legal li{color:var(--mute);font-size:16.5px;line-height:1.72}
+.legal p{margin:0 0 14px}
+.legal ul{margin:0 0 16px;padding-left:20px;display:grid;gap:8px}
+.legal li::marker{color:var(--acc)}
+.legal strong{color:var(--ink)}
+.legal a{color:var(--accink)}
+.legal-foot{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);font-size:14px}
+@media (max-width:560px){.legal p,.legal li{font-size:15.5px}}
+
+.svc-intro{margin-bottom:28px}
+@media (max-width:1100px){.offer{flex-direction:column;align-items:flex-start}.offer-copy{max-width:none}.offer-price{width:100%;flex-direction:row;align-items:center;gap:10px 16px;flex-wrap:wrap}.offer-price .btn{margin-top:0}}
