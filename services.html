@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://*.goatcounter.com; connect-src 'self' https://formsubmit.co https://*.goatcounter.com; form-action 'self' https://formsubmit.co; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; media-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Freelance Services — Basil Ayyad | Internal Tools, ERP, AI, Websites</title>
 <meta name="description" content="Freelance software for internal tools, business systems, ERP modules, AI features, and fast portfolio websites. Based in Amman, working remotely.">
 <meta name="author" content="Basil Ayyad">
@@ -28,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=10">
+<link rel="stylesheet" href="assets/site.css?v=11">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -184,8 +186,8 @@
 <form class="cform rv" id="cform" style="--d:.15s" novalidate>
 <p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.6v.1"/></svg><span>This form sends your message straight to my inbox. I usually reply within one working day.</span></p>
 <div class="row2">
-<label for="f-name">Your name<input id="f-name" name="name" autocomplete="name"></label>
-<label for="f-email">Your email<input id="f-email" name="email" type="email" autocomplete="email"></label>
+<label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" maxlength="80"></label>
+<label for="f-email">Your email<input id="f-email" name="email" type="email" autocomplete="email" maxlength="254"></label>
 </div>
 <label for="f-service">What do you need?</label>
 <select id="f-service" name="service" autocomplete="off">
@@ -202,8 +204,8 @@
 </select>
 <div class="estimate" id="estimate" aria-live="polite"><span class="est-k">Estimated budget</span><b id="estimate-val">From $400</b><span class="est-note">Final quote after a short scope call</span></div>
 <input type="hidden" name="estimate" id="f-estimate" value="From $400">
-<label for="f-subject">Subject<input id="f-subject" name="subject" value="Project inquiry: Basil Ayyad"></label>
-<label for="f-message">What do you need built?<textarea id="f-message" name="message" rows="6" placeholder="The problem, who uses it, your deadline, and a budget range if you have one."></textarea></label>
+<label for="f-subject">Subject<input id="f-subject" name="subject" value="Project inquiry: Basil Ayyad" maxlength="120"></label>
+<label for="f-message">What do you need built?<textarea id="f-message" name="message" rows="6" maxlength="5000" placeholder="The problem, who uses it, your deadline, and a budget range if you have one."></textarea></label>
 <p class="consent">By sending this message you agree to the <a href="terms.html" target="_blank" rel="noopener">Terms of Service</a>.</p>
 <p class="cf-msg" id="cf-msg" role="status" aria-live="polite"></p>
 <button class="btn main" type="submit" data-track="services-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="m21 3-9.2 9.2M21 3l-6.3 18-3.6-8.1L3 9.3z"/></svg><span>Send message</span></button>
@@ -236,7 +238,7 @@ cf.addEventListener('submit',function(ev){ev.preventDefault();var g=function(id)
 if(!name||!ok||!txt){m.textContent='Please add your name, a valid email address, and a message.';m.className='cf-msg err';return}
 var btn=cf.querySelector('button[type="submit"]'),lab=btn.querySelector('span'),old=lab.textContent;
 btn.disabled=true;lab.textContent='Sending…';m.textContent='';m.className='cf-msg';
-var subject=g('f-subject')||'Project inquiry: Basil Ayyad';
+var subject=g('f-subject')||'Project inquiry: Basil Ayyad';subject=subject.replace(/[\r\n]+/g,' ').slice(0,120);name=name.replace(/[\r\n]+/g,' ').slice(0,80);
 var payload={name:name,email:mail,service:service,estimate:estimate,message:txt,page:location.href,_subject:subject+' ('+name+')',_replyto:mail,_template:'table',_captcha:'false',_honey:''};
 fetch('https://formsubmit.co/ajax/leaderbasil@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,d:d}})}).then(function(res){if(res.ok&&(res.d.success===true||res.d.success==='true')){m.textContent='Message sent. I will reply to '+mail+' within one working day.';m.className='cf-msg ok';cf.reset();syncEst()}else{throw new Error((res.d&&res.d.message)||'Send failed')}}).catch(function(){var body='Name: '+name+'\nEmail: '+mail+'\nService: '+service+'\nEstimated budget: '+estimate+'\n\n'+txt;var href='mailto:leaderbasil@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);m.textContent='The direct send did not go through. ';var a=document.createElement('a');a.href=href;a.textContent='Open your email app instead';m.appendChild(a);m.appendChild(document.createTextNode('.'));m.className='cf-msg err'}).then(function(){btn.disabled=false;lab.textContent=old})});
 }
@@ -264,12 +266,13 @@ if(!reduce){if(!shoot&&Math.random()<.004)shoot={x:Math.random()*W*.8,y:Math.ran
 size();draw(0);if(!reduce)requestAnimationFrame(draw);
 addEventListener('resize',function(){size();if(reduce)draw(0)});
 btn.addEventListener('click',function(){if(reduce)draw(0)});
+document.querySelectorAll('.ent').forEach(function(e){e.addEventListener('animationend',function h(ev){if(ev.target!==e)return;if(ev.animationName==='riseB'||ev.animationName==='rise'){e.style.willChange=e.classList.contains('avail-float')?'transform':'auto';e.removeEventListener('animationend',h)}})});
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 })();
 </script>
 <!-- Analytics: GoatCounter (leaderbasil.goatcounter.com) -->
-<script data-goatcounter="https://leaderbasil.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://leaderbasil.goatcounter.com/count" async src="assets/goatcounter.js?v=1"></script>
 </body>
 </html>

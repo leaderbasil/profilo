@@ -183,7 +183,7 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .work .card:nth-child(2),.work .card:nth-child(4){--d:.12s}
 .tools .card:nth-child(2){--d:.1s}.tools .card:nth-child(3){--d:.2s}.tools .card:nth-child(4){--d:.3s}.tools .card:nth-child(5){--d:.4s}
 @keyframes rise{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes riseB{from{opacity:0;transform:translateY(26px);filter:blur(4px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes riseB{from{opacity:0;transform:translateY(26px);filter:blur(7px)}to{opacity:1;transform:none;filter:blur(0)}}
 @keyframes riseL{from{opacity:0;transform:translateX(-36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes riseR{from{opacity:0;transform:translateX(36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
 .js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--e,0)*110ms + 80ms)}
@@ -195,7 +195,7 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 @media (max-width:1050px) and (min-width:901px){#nav a.l{padding:8px 8px;font-size:14.5px}#theme{padding:8px 11px}}
 @media (max-width:900px){#menu{display:inline-flex;margin-left:auto}#nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 64px);left:0;right:0;max-height:calc(100dvh - 74px);overflow:auto;flex-direction:column;align-items:stretch;gap:2px;background:var(--hdr);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;padding:10px 14px 14px;display:none;box-shadow:0 22px 34px -24px rgba(11,20,38,.5)}#nav.open{display:flex}#nav a.l{padding:12px;border-radius:8px;font-size:16px}#nav a.l.act{background:var(--soft);color:var(--ink)}#nav a.l.act::after{display:none}#theme{margin-left:8px}}
 @media (max-width:560px){.btn{flex:1 1 100%}#theme{margin-left:0}body{font-size:16.5px}.foot{gap:12px 16px;padding:20px}.fsoc{order:2;margin-left:auto}.fnav{order:3;width:100%;justify-content:flex-start;gap:4px 14px;padding-top:14px;border-top:1px solid var(--line)}.fnav a{font-size:13.5px}.fcopy{order:4;padding-top:12px;font-size:12.5px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .tiles li,.js .ln,.js .rv,.js .ent{opacity:1!important;transform:none!important;filter:none!important}.js h2.rv::after{width:56px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .tiles li,.js .ln,.js .rv,.js .ent{opacity:1!important;transform:none!important;filter:none!important;will-change:auto!important}.js h2.rv::after{width:56px}}
 
 /* ---------- Freelance teaser (home) ---------- */
 .freelance-card{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;background:linear-gradient(135deg,rgba(30,144,255,.10),rgba(139,92,246,.12)),var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3.5vw,34px);box-shadow:0 18px 44px -34px rgba(11,20,38,.5)}
