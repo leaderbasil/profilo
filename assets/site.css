@@ -248,7 +248,19 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 @media (max-width:900px){.page-hero{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.console{font-size:12px}.console .body{padding:14px 14px 16px}}
 
-.avail{position:relative;display:inline-flex;align-items:center;gap:11px;margin:0 0 20px;padding:9px 17px;border-radius:999px;border:1px solid transparent;background:linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(30,144,255,.75),rgba(139,92,246,.7) 55%,rgba(30,144,255,.55)) border-box;box-shadow:0 14px 32px -22px rgba(30,144,255,.85),inset 0 1px 0 rgba(255,255,255,.06);font:700 12px/1 "IBM Plex Sans",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:var(--ink)}
+.avail{position:relative;display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid transparent;background:linear-gradient(135deg,rgba(30,144,255,.075),rgba(139,92,246,.09)),linear-gradient(var(--surface),var(--surface)) padding-box,linear-gradient(115deg,rgba(30,144,255,.75),rgba(139,92,246,.7) 55%,rgba(30,144,255,.55)) border-box;box-shadow:0 14px 32px -22px rgba(30,144,255,.85),inset 0 1px 0 rgba(255,255,255,.12);font:700 11.5px/1.2 "IBM Plex Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+.avail-ico{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:8px;background:linear-gradient(135deg,rgba(30,144,255,.18),rgba(139,92,246,.20));color:var(--accink);flex:none}
+.avail-ico svg{width:13px;height:13px}
+@media (max-width:560px){
+.console-wrap .avail{display:flex;width:100%;justify-content:center;gap:8px;margin-bottom:16px;padding:7px 12px 7px 7px;font-size:10.5px;letter-spacing:.06em}
+.avail-ico{width:22px;height:22px;border-radius:7px}
+.avail-ico svg{width:12px;height:12px}
+}
+@media (max-width:360px){
+.console-wrap .avail{font-size:10px;letter-spacing:.04em;gap:7px;padding:7px 10px 7px 7px}
+.avail-ico{width:20px;height:20px;border-radius:6px}
+.avail-ico svg{width:11px;height:11px}
+}
 
 .svc .price{position:absolute;top:20px;right:20px;padding:6px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--accink);font:800 15px/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
 .offer{display:flex;align-items:center;justify-content:space-between;gap:24px 40px;flex-wrap:wrap;margin-top:20px;padding:clamp(22px,3.2vw,32px);border-radius:18px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(30,144,255,.10),rgba(139,92,246,.12)),var(--surface);box-shadow:0 18px 44px -34px rgba(11,20,38,.5)}
@@ -267,6 +279,7 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .console-wrap{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
 .console-wrap .console{width:100%}
 .avail-float{overflow:visible;animation:availFloat 7s ease-in-out infinite;will-change:transform}
+@media (min-width:561px){.js .avail-float.ent{animation:riseB .7s cubic-bezier(.2,.7,.2,1) calc(var(--e,0)*110ms + 80ms) forwards,availFloat 7s ease-in-out 1.2s infinite}}
 .avail-float .shine{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none}
 .avail-float .shine::before{content:"";position:absolute;top:-70%;bottom:-70%;left:0;width:34%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-240%) rotate(10deg);animation:availSheen 7s ease-in-out infinite}
 :root[data-theme="dark"] .avail-float .shine::before{background:linear-gradient(100deg,transparent,rgba(255,255,255,.24),transparent)}
