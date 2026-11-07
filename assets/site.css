@@ -90,6 +90,19 @@ h2{font:700 clamp(26px,4vw,34px)/1.15 "Bricolage Grotesque",sans-serif;margin:0 
 .future .tiles li{background:linear-gradient(135deg,var(--soft),rgba(139,92,246,.16));color:var(--ink)}.future .tiles li i{background:linear-gradient(135deg,var(--acc),var(--vio))}.future p.note{margin:0 0 14px;color:var(--mute);font-size:15.5px}
 .portrait{position:relative;margin:0;border-radius:50%;padding:10px;background:linear-gradient(135deg,var(--acc),var(--vio));box-shadow:0 26px 50px -30px rgba(99,102,241,.7)}
 .portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 18%;border-radius:50%;background:#fff}
+.portrait .constellation{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:2}
+.constellation .p-tw{animation:pvtw var(--t,4s) ease-in-out infinite;animation-delay:var(--to,0s)}
+@keyframes pvtw{0%,100%{opacity:.15}50%{opacity:1}}
+.constellation .p-sp{transform-box:fill-box;transform-origin:center;animation:pvsp var(--t,4.5s) ease-in-out infinite;animation-delay:var(--to,0s)}
+@keyframes pvsp{0%,100%{opacity:.1;transform:scale(.45)}50%{opacity:1;transform:scale(1.2)}}
+.constellation .p-ring{transform-box:fill-box;transform-origin:center;animation:pvring 4.6s ease-out infinite;animation-delay:var(--to,0s)}
+@keyframes pvring{0%{transform:scale(.985);opacity:.6}80%,100%{transform:scale(1.15);opacity:0}}
+.constellation .p-op{transform-box:fill-box;transform-origin:center;animation:pvspin 26s linear infinite}
+@keyframes pvspin{to{transform:rotate(360deg)}}
+.constellation .p-nd{transform-box:fill-box;transform-origin:center;animation:pvlit 5.2s ease-out infinite;animation-delay:var(--to,0s)}
+@keyframes pvlit{0%{transform:scale(1.85);opacity:1}16%{transform:scale(1.25);opacity:1}70%,100%{opacity:.45;transform:scale(1)}}
+.constellation .p-shoot{opacity:0;animation:pvshoot 9s ease-out infinite;animation-delay:var(--to,2.5s)}
+@keyframes pvshoot{0%{transform:translate(0,0);opacity:0}3%{opacity:.9}16%,100%{transform:translate(320px,160px);opacity:0}}
 .hero-photo{grid-area:ph;margin:0;width:100%}
 .shot{display:block;margin:18px 0 0;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:transparent}
 .cap{margin:20px 0 10px!important;font:700 13px/1 'IBM Plex Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
@@ -177,16 +190,17 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 #totop:hover{background:var(--accink)}
 #totop svg{width:20px;height:20px}
 .js .rv{opacity:0}
-.js .rv.in{opacity:1;animation:rise .85s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0s)}
+.js .rv.in{opacity:1;animation:rise .95s cubic-bezier(.18,1.14,.3,1) backwards;animation-delay:var(--d,0s)}
 .js .work .card.in:nth-child(odd){animation-name:riseL}
 .js .work .card.in:nth-child(even){animation-name:riseR}
 .work .card:nth-child(2),.work .card:nth-child(4){--d:.12s}
 .tools .card:nth-child(2){--d:.1s}.tools .card:nth-child(3){--d:.2s}.tools .card:nth-child(4){--d:.3s}.tools .card:nth-child(5){--d:.4s}
-@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes riseB{from{opacity:0;transform:translateY(26px);filter:blur(7px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes rise{from{opacity:0;transform:translateY(44px) scale(.955)}to{opacity:1;transform:none}}
+
+@keyframes riseB{from{opacity:0;transform:translateY(34px) scale(.985);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
 @keyframes riseL{from{opacity:0;transform:translateX(-36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
 @keyframes riseR{from{opacity:0;transform:translateX(36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--e,0)*110ms + 80ms)}
+.js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .85s cubic-bezier(.18,1.14,.3,1) forwards;animation-delay:calc(var(--e,0)*100ms + 60ms)}
 .js .hero-photo.ent{animation-name:rise}
 .js h2.rv::after{content:"";display:block;height:4px;width:0;margin-top:10px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--vio));transition:width .8s cubic-bezier(.2,.7,.2,1) .3s}
 .js h2.rv.in::after{width:56px}
