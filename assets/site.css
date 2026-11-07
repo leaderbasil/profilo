@@ -95,11 +95,11 @@ h2{font:700 clamp(26px,4vw,34px)/1.15 "Bricolage Grotesque",sans-serif;margin:0 
 @keyframes pvtw{0%,100%{opacity:.15}50%{opacity:1}}
 .constellation .p-sp{transform-box:fill-box;transform-origin:center;animation:pvsp var(--t,4.5s) ease-in-out infinite;animation-delay:var(--to,0s)}
 @keyframes pvsp{0%,100%{opacity:.1;transform:scale(.45)}50%{opacity:1;transform:scale(1.2)}}
-.constellation .p-ring{transform-box:fill-box;transform-origin:center;animation:pvring 4s linear infinite;animation-delay:var(--to,0s)}
+.constellation .p-ring{transform-box:fill-box;transform-origin:center;animation:pvring 6.5s linear infinite;animation-delay:var(--to,0s)}
 @keyframes pvring{0%{transform:scale(1.01);opacity:.75}100%{transform:scale(1.75);opacity:0}}
 .constellation .p-op{transform-box:fill-box;transform-origin:center;animation:pvspin 26s linear infinite}
 @keyframes pvspin{to{transform:rotate(360deg)}}
-.constellation .p-nd{transform-box:fill-box;transform-origin:center;animation:pvlit 4s ease-out infinite;animation-delay:var(--to,0s)}
+.constellation .p-nd{transform-box:fill-box;transform-origin:center;animation:pvlit 6.5s ease-out infinite;animation-delay:var(--to,0s)}
 @keyframes pvlit{0%{transform:scale(2.2);opacity:1}14%{transform:scale(1.35);opacity:1}55%,100%{opacity:.55;transform:scale(1)}}
 .constellation .p-shoot{opacity:0;animation:pvshoot 9s ease-out infinite;animation-delay:var(--to,2.5s)}
 @keyframes pvshoot{0%{transform:translate(0,0);opacity:0}3%{opacity:.9}16%,100%{transform:translate(320px,160px);opacity:0}}
