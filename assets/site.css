@@ -190,19 +190,19 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 #totop:hover{background:var(--accink)}
 #totop svg{width:20px;height:20px}
 .js .rv{opacity:0}
-.js .rv.in{opacity:1;animation:rise .95s cubic-bezier(.18,1.14,.3,1) backwards;animation-delay:var(--d,0s)}
+.js .rv.in{opacity:1;animation:rise .7s cubic-bezier(.18,1.14,.3,1) backwards;animation-delay:var(--d,0s)}
 .js .work .card.in:nth-child(odd){animation-name:riseL}
 .js .work .card.in:nth-child(even){animation-name:riseR}
 .work .card:nth-child(2),.work .card:nth-child(4){--d:.12s}
 .tools .card:nth-child(2){--d:.1s}.tools .card:nth-child(3){--d:.2s}.tools .card:nth-child(4){--d:.3s}.tools .card:nth-child(5){--d:.4s}
-@keyframes rise{from{opacity:0;transform:translateY(44px) scale(.955)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(36px) scale(.965)}to{opacity:1;transform:none}}
 
-@keyframes riseB{from{opacity:0;transform:translateY(34px) scale(.985);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
-@keyframes riseL{from{opacity:0;transform:translateX(-36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes riseR{from{opacity:0;transform:translateX(36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-.js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .85s cubic-bezier(.18,1.14,.3,1) forwards;animation-delay:calc(var(--e,0)*100ms + 60ms)}
+@keyframes riseB{from{opacity:0;transform:translateY(34px) scale(.985);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes riseL{from{opacity:0;transform:translateX(-30px) translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes riseR{from{opacity:0;transform:translateX(30px) translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+.js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .6s cubic-bezier(.18,1.14,.3,1) forwards;animation-delay:calc(var(--e,0)*70ms + 40ms)}
 .js .hero-photo.ent{animation-name:rise}
-.js h2.rv::after{content:"";display:block;height:4px;width:0;margin-top:10px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--vio));transition:width .8s cubic-bezier(.2,.7,.2,1) .3s}
+.js h2.rv::after{content:"";display:block;height:4px;width:0;margin-top:10px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--vio));transition:width .55s cubic-bezier(.2,.7,.2,1) .18s}
 .js h2.rv.in::after{width:56px}
 @media (max-width:820px){.hero .lead,.about p{text-wrap:pretty}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes riseB{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@keyframes riseL{from{opacity:0;transform:translateX(-18px) translateY(12px)}to{opacity:1;transform:none}}@keyframes riseR{from{opacity:0;transform:translateX(18px) translateY(12px)}to{opacity:1;transform:none}}.hero{grid-template-columns:1fr;grid-template-areas:"ph" "tx";row-gap:0;justify-items:start}.hero-text{padding-top:28px}.hero h1{font-size:clamp(28px,7.5vw,44px)}.hero .lead{max-width:none}.hero-photo{width:clamp(200px,50vw,260px);margin:0 auto}.work{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.cform .row2{grid-template-columns:1fr}.about-wrap{grid-template-columns:1fr}.edu-grid{grid-template-columns:1fr}}
