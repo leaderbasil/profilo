@@ -44,7 +44,7 @@ h1{font:800 clamp(36px,5.4vw,58px)/1.04 "Bricolage Grotesque",sans-serif;letter-
 .lead{font-size:clamp(17px,2.2vw,19px);color:var(--mute);max-width:52ch;margin:0}
 .lead .lp{display:block;margin-top:.85em}
 @property --beam{syntax:"<angle>";inherits:false;initial-value:0deg}
-.rmore{display:none;position:relative;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;margin-top:12px;padding:0 22px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-family:inherit;font-size:inherit;font-weight:500;cursor:pointer;touch-action:manipulation;transition:transform .15s,border-color .15s}
+.rmore{display:none;position:relative;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;padding:0 22px;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-family:inherit;font-size:inherit;font-weight:500;cursor:pointer;touch-action:manipulation;transition:transform .15s,border-color .15s}
 .rmore::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--beam),transparent 0turn 58%,rgba(79,124,255,0) 60%,#4f7cff 76%,#8b5cf6 88%,#a855f7 96%,transparent 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask-composite:exclude;pointer-events:none;filter:drop-shadow(0 0 5px rgba(139,92,246,.65));animation:beamSpin 3s linear infinite}
 @keyframes beamSpin{to{--beam:1turn}}
 .rmore:hover{border-color:var(--acc);transform:translateY(-2px)}
