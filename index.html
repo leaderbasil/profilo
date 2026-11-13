@@ -35,7 +35,7 @@
 <link rel="preload" as="image" href="assets/portrait.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=33">
+<link rel="stylesheet" href="assets/site.css?v=34">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -237,21 +237,23 @@
 <article class="xp-item rv">
 <div class="xp-head"><h3>Software Engineer</h3><span class="xp-when">Dec 2025 – Nov 2026</span></div>
 <p class="xp-org">Obsidian Labs · Amman, Jordan</p>
-<ul>
+<div class="xpm" id="xpm-1"><ul>
 <li>Built PolarisX ERP with the core team: a fully custom enterprise platform from scratch using Sanic (Python), covering inventory, CRM, POS, accounting, operations, reporting, and document management.</li>
 <li>Architected scalable REST APIs with Sanic and drove ERP integration with client systems and external data sources.</li>
 <li>Built web and desktop apps with React and Electron, and mobile apps with Flutter, and shipped features on tight deadlines.</li>
 <li>Led a small mobile team, setting technical direction and reviewing production code.</li>
 <li>Contributed to testing and deployment across the platform.</li>
-</ul>
+</ul></div>
+<button class="xmore" type="button" aria-expanded="false" aria-controls="xpm-1"><span>Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><path d="m6 9 6 6 6-6"/></svg></button>
 </article>
 <article class="xp-item rv" style="--d:.1s">
 <div class="xp-head"><h3>Software Engineer Trainee</h3><span class="xp-when">Feb 2026 – Apr 2026</span></div>
 <p class="xp-org">4matex Information Technology · Amman, Jordan</p>
-<ul>
+<div class="xpm" id="xpm-2"><ul>
 <li>Completed an intensive Low Code training program with OutSystems, covering application development, database integration, and UI design.</li>
 <li>Built multiple functional business applications in a condensed training cycle, working with Agile workflows in a team.</li>
-</ul>
+</ul></div>
+<button class="xmore" type="button" aria-expanded="false" aria-controls="xpm-2"><span>Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:13px;height:13px"><path d="m6 9 6 6 6-6"/></svg></button>
 </article>
 </div>
 </section>
@@ -440,6 +442,7 @@ btn.addEventListener('click',function(){if(reduce)draw(0)});
 document.querySelectorAll('.ent').forEach(function(e){e.addEventListener('animationend',function h(ev){if(ev.target!==e)return;if(ev.animationName==='riseB'||ev.animationName==='rise'){e.style.willChange=e.classList.contains('avail-float')?'transform':'auto';e.removeEventListener('animationend',h)}})});
 var rm=document.getElementById('rmore'),hl=document.getElementById('heroLead');
 if(rm&&hl){rm.addEventListener('click',function(){var open=hl.classList.toggle('open');rm.classList.toggle('open',open);rm.classList.remove('bounce');void rm.offsetWidth;rm.classList.add('bounce');rm.setAttribute('aria-expanded',open?'true':'false');rm.querySelector('span').textContent=open?'Read less':'Read more'})}
+document.querySelectorAll('.xmore').forEach(function(b){b.addEventListener('click',function(){var it=b.closest('.xp-item');var open=it.classList.toggle('open');b.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');b.querySelector('span').textContent=open?'Read less':'Read more'})})
 document.querySelectorAll('.shot img,.phones img').forEach(function(i){function ld(){i.classList.add('ld')}if(i.complete&&i.naturalWidth){ld()}else{i.addEventListener('load',ld,{once:true});i.addEventListener('error',ld,{once:true})}});
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});document.querySelectorAll('.tiles').forEach(function(e){e.classList.add('go')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.tiles').forEach(function(c){c.classList.add('go')});io.unobserve(x.target)}})},{threshold:.15});
