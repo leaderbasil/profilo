@@ -35,7 +35,7 @@
 <link rel="preload" as="image" href="assets/portrait.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=35">
+<link rel="stylesheet" href="assets/site.css?v=36">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -236,6 +236,7 @@
 <div class="xp">
 <article class="xp-item rv">
 <div class="xp-head"><h3>Software Engineer</h3><span class="xp-when">Dec 2025 – Nov 2026</span></div>
+<span class="xp-logo"><img class="lt" src="assets/logo-obsidian-light.webp" width="55" height="96" alt="Obsidian Labs logo" loading="lazy" decoding="async"><img class="dk" src="assets/logo-obsidian-dark.webp" width="55" height="96" alt="Obsidian Labs logo" loading="lazy" decoding="async"></span>
 <p class="xp-org">Obsidian Labs · Amman, Jordan</p>
 <div class="xpm" id="xpm-1"><ul>
 <li>Built PolarisX ERP with the core team: a fully custom enterprise platform from scratch using Sanic (Python), covering inventory, CRM, POS, accounting, operations, reporting, and document management.</li>
@@ -440,13 +441,13 @@ if(!reduce){if(!shoot&&Math.random()<.007)shoot={x:Math.random()*W*.75+30,y:Math
 size();draw(0);if(!reduce)requestAnimationFrame(draw);
 addEventListener('resize',function(){size();if(reduce)draw(0)});
 btn.addEventListener('click',function(){if(reduce)draw(0)});
-document.querySelectorAll('.ent').forEach(function(e){e.addEventListener('animationend',function h(ev){if(ev.target!==e)return;if(ev.animationName==='riseB'||ev.animationName==='rise'){e.style.willChange=e.classList.contains('avail-float')?'transform':'auto';e.removeEventListener('animationend',h)}})});
+document.querySelectorAll('.ent,.work .card').forEach(function(e){e.addEventListener('animationend',function h(ev){if(ev.target!==e)return;if(ev.animationName==='riseB'||ev.animationName==='rise'||ev.animationName==='riseL'||ev.animationName==='riseR'){e.style.willChange=e.classList.contains('avail-float')?'transform':'auto';e.removeEventListener('animationend',h)}})});
 var rm=document.getElementById('rmore'),hl=document.getElementById('heroLead');
 if(rm&&hl){rm.addEventListener('click',function(){var open=hl.classList.toggle('open');rm.classList.toggle('open',open);rm.classList.remove('bounce');void rm.offsetWidth;rm.classList.add('bounce');rm.setAttribute('aria-expanded',open?'true':'false');rm.querySelector('span').textContent=open?'Read less':'Read more'})}
 document.querySelectorAll('.xmore').forEach(function(b){b.addEventListener('click',function(){var it=b.closest('.xp-item');var open=it.classList.toggle('open');b.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');b.querySelector('span').textContent=open?'Read less':'Read more'})})
 document.querySelectorAll('.shot img,.phones img').forEach(function(i){function ld(){i.classList.add('ld')}if(i.complete&&i.naturalWidth){ld()}else{i.addEventListener('load',ld,{once:true});i.addEventListener('error',ld,{once:true})}});
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});document.querySelectorAll('.tiles').forEach(function(e){e.classList.add('go')});return}
-var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.tiles').forEach(function(c){c.classList.add('go')});io.unobserve(x.target)}})},{threshold:.15});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.tiles').forEach(function(c){c.classList.add('go')});io.unobserve(x.target)}})},{threshold:.1});
 document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 })();
 </script>

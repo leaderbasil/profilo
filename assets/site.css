@@ -134,7 +134,8 @@ h2{font:700 clamp(26px,4vw,34px)/1.15 "Bricolage Grotesque",sans-serif;margin:0 
 :root[data-theme="dark"] .shot .lt{display:none}:root[data-theme="dark"] .shot .dk{display:block}:root[data-theme="dark"] .xp-logo .lt{display:none}:root[data-theme="dark"] .xp-logo .dk{display:block}
 .shot{position:relative;transition:box-shadow .5s,border-color .5s}
 .shot.on,.card:hover .shot{border-color:rgba(99,102,241,.5);box-shadow:0 18px 36px -20px rgba(99,102,241,.6)}
-.shot img{transform-origin:50% 50%;will-change:transform;display:block;width:100%;height:auto;transition:transform .9s cubic-bezier(.16,.8,.2,1),filter .6s}
+.shot img{transform-origin:50% 50%;display:block;width:100%;height:auto;transition:transform .9s cubic-bezier(.16,.8,.2,1),filter .6s}
+@media (hover:hover){.shot img{will-change:transform}}
 .work .shot{aspect-ratio:16/10}
 .work .shot img{height:100%;object-fit:cover;object-position:50% 0}
 .card:hover .shot img,.shot:hover img,.shot.on img{transform:scale(1.14)}
@@ -214,16 +215,16 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 #totop:hover{background:var(--accink)}
 #totop svg{width:20px;height:20px}
 .js .rv{opacity:0}
-.js .rv.in{opacity:1;animation:rise .95s cubic-bezier(.18,1.14,.3,1) backwards;animation-delay:var(--d,0s)}
-.js .work .card.in:nth-child(odd){animation-name:riseL}
+.js .rv.in{opacity:1;animation:rise .8s cubic-bezier(.22,.9,.3,1) backwards;animation-delay:var(--d,0s)}
+.js .work .card.in{animation:riseL .65s cubic-bezier(.22,.9,.3,1) backwards;animation-delay:var(--d,0s);will-change:transform,opacity}
 .js .work .card.in:nth-child(even){animation-name:riseR}
-.work .card:nth-child(2),.work .card:nth-child(4){--d:.12s}
+.work .card:nth-child(2),.work .card:nth-child(4){--d:.08s}
 .tools .card:nth-child(2){--d:.1s}.tools .card:nth-child(3){--d:.2s}.tools .card:nth-child(4){--d:.3s}.tools .card:nth-child(5){--d:.4s}
 @keyframes rise{from{opacity:0;transform:translateY(44px) scale(.955)}to{opacity:1;transform:none}}
 
 @keyframes riseB{from{opacity:0;transform:translateY(34px) scale(.985);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
-@keyframes riseL{from{opacity:0;transform:translateX(-36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes riseR{from{opacity:0;transform:translateX(36px) translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes riseL{from{opacity:0;transform:translateX(-26px) translateY(12px)}to{opacity:1;transform:none}}
+@keyframes riseR{from{opacity:0;transform:translateX(26px) translateY(12px)}to{opacity:1;transform:none}}
 .js .ent{opacity:0;will-change:filter,opacity,transform;animation:riseB .85s cubic-bezier(.18,1.14,.3,1) forwards;animation-delay:calc(var(--e,0)*100ms + 60ms)}
 .js .hero-photo.ent{animation-name:rise}
 .js h2.rv::after{content:"";display:block;height:4px;width:0;margin-top:10px;border-radius:4px;background:linear-gradient(90deg,var(--acc),var(--vio));transition:width .8s cubic-bezier(.2,.7,.2,1) .3s}
@@ -240,7 +241,7 @@ footer{padding:8px 0 34px;color:var(--mute);font-size:14px}
 .js .xp-item.open .xpm{grid-template-rows:1fr}
 .js .xp-item.open .xpm ul{opacity:1;transform:none;transition-delay:120ms}
 .js .xmore{display:inline-flex}
-@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes riseB{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes riseL{from{opacity:0;transform:translateX(-18px) translateY(12px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes riseR{from{opacity:0;transform:translateX(18px) translateY(12px) scale(.97);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}.hero{grid-template-columns:1fr;grid-template-areas:"ph" "tx";row-gap:0;justify-items:start}.hero-text{padding-top:28px}.hero h1{font-size:clamp(28px,7.5vw,44px)}.hero .lead{max-width:none}.hero-photo{width:clamp(200px,50vw,260px);margin:0 auto}.work{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.cform .row2{grid-template-columns:1fr}.about-wrap{grid-template-columns:1fr}.edu-grid{grid-template-columns:1fr}.xp-when{margin-left:0;order:2}.xp-logo{height:21px;top:4px}.xp-logo img{height:21px}.xp-head{padding-right:110px}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}@keyframes riseB{from{opacity:0;transform:translateY(18px) scale(.985);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}@keyframes riseL{from{opacity:0;transform:translateX(-16px) translateY(8px)}to{opacity:1;transform:none}}@keyframes riseR{from{opacity:0;transform:translateX(16px) translateY(8px)}to{opacity:1;transform:none}}.hero{grid-template-columns:1fr;grid-template-areas:"ph" "tx";row-gap:0;justify-items:start}.hero-text{padding-top:28px}.hero h1{font-size:clamp(28px,7.5vw,44px)}.hero .lead{max-width:none}.hero-photo{width:clamp(200px,50vw,260px);margin:0 auto}.work{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.cform .row2{grid-template-columns:1fr}.about-wrap{grid-template-columns:1fr}.edu-grid{grid-template-columns:1fr}.xp-when{margin-left:0;order:2}.xp-logo{height:21px;top:4px}.xp-logo img{height:21px}.xp-head{padding-right:110px}}
 @media (max-width:1050px) and (min-width:901px){#nav a.l{padding:8px 8px;font-size:14.5px}#theme{padding:8px 11px}}
 @media (max-width:900px){#menu{display:inline-flex;margin-left:auto}#nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 64px);left:0;right:0;max-height:calc(100dvh - 74px);overflow:auto;flex-direction:column;align-items:stretch;gap:2px;background:var(--hdr);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;padding:10px 14px 14px;display:none;box-shadow:0 22px 34px -24px rgba(11,20,38,.5)}#nav.open{display:flex}#nav a.l{padding:12px;border-radius:8px;font-size:16px}#nav a.l.act{background:var(--soft);color:var(--ink)}#nav a.l.act::after{display:none}#theme{margin-left:8px}}
 @media (max-width:560px){.btn{flex:1 1 100%}#theme{margin-left:0}body{font-size:16.5px}.foot{gap:12px 16px;padding:20px}.fsoc{order:2;margin-left:auto}.fnav{order:3;width:100%;justify-content:flex-start;gap:4px 14px;padding-top:14px;border-top:1px solid var(--line)}.fnav a{font-size:13.5px}.fcopy{order:4;padding-top:12px;font-size:12.5px}}
