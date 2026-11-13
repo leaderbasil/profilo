@@ -35,7 +35,7 @@
 <link rel="preload" as="image" href="assets/portrait.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=38">
+<link rel="stylesheet" href="assets/site.css?v=39">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -434,9 +434,12 @@ btn.addEventListener('click',function(){var n=eff()==='dark'?'light':'dark';root
 label();
 var cv=document.getElementById('stars'),cx=cv.getContext('2d'),W=0,H=0,S=[],dpr=Math.min(window.devicePixelRatio||1,1.25),shoot=null,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,lastT=0,sy=0;
 addEventListener('scroll',function(){sy=scrollY||0},{passive:true});
-function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);S=[];for(var i=0,n=Math.round(W*H/9000);i<n;i++){var d=Math.random()*.7+.3;S.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2*d+.3,p:Math.random()*6.28,s:Math.random()*1.6+.5,v:(Math.random()*.08+.02)*d,d:d,vio:Math.random()<.18})}}
-function draw(t){if(t-lastT<33){if(!reduce)requestAnimationFrame(draw);return}lastT=t;if(document.hidden){if(!reduce)requestAnimationFrame(draw);return}var dk=eff()==='dark',blue=dk?'200,225,255':'30,144,255',b=dk?.95:.55;cx.clearRect(0,0,W,H);
-S.forEach(function(s){var a=(.35+.65*(.5+.5*Math.sin(t/1000*s.s+s.p)))*b,yo=(sy*.12*s.d)%H,y=(s.y-yo+H)%H;cx.fillStyle='rgba('+(s.vio?'190,150,255':blue)+','+a+')';cx.beginPath();cx.arc(s.x,y,s.r,0,6.283);cx.fill();if(!reduce){s.y-=s.v;if(s.y<-2){s.y=H+2;s.x=Math.random()*W}}});
+function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);S=[];for(var i=0,n=Math.round(W*H/12000);i<n;i++){var d=Math.random()*.7+.3;S.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2*d+.3,p:Math.random()*6.28,s:Math.random()*1.6+.5,v:(Math.random()*.08+.02)*d,d:d,vio:Math.random()<.18})}}
+var spB=null,spV=null,spKey='';
+function sprites(dk){var k=dk?'d':'l';if(spKey===k)return;spKey=k;function mk(rgb){var c=document.createElement('canvas');c.width=c.height=10;var g=c.getContext('2d');g.fillStyle='rgba('+rgb+',.3)';g.beginPath();g.arc(5,5,4.6,0,6.283);g.fill();g.fillStyle='rgb('+rgb+')';g.beginPath();g.arc(5,5,2.4,0,6.283);g.fill();return c}spB=mk(dk?'200,225,255':'30,144,255');spV=mk('190,150,255')}
+function draw(t){if(t-lastT<33){if(!reduce)requestAnimationFrame(draw);return}lastT=t;if(document.hidden){if(!reduce)requestAnimationFrame(draw);return}var dk=eff()==='dark',blue=dk?'200,225,255':'30,144,255',b=dk?.95:.55;cx.clearRect(0,0,W,H);sprites(dk);var sb=spB,sv=spV;
+S.forEach(function(s){var a=(.35+.65*(.5+.5*Math.sin(t/1000*s.s+s.p)))*b,yo=(sy*.12*s.d)%H,y=(s.y-yo+H)%H;cx.globalAlpha=a;var img=s.vio?sv:sb,d=s.r*4.17;cx.drawImage(img,s.x-d/2,y-d/2,d,d);if(!reduce){s.y-=s.v;if(s.y<-2){s.y=H+2;s.x=Math.random()*W}}});
+cx.globalAlpha=1;
 if(!reduce){if(!shoot&&Math.random()<.007)shoot={x:Math.random()*W*.75+30,y:Math.random()*H*.45,l:0};if(shoot){var len=shoot.l<8?14+shoot.l*4.5:50,g=cx.createLinearGradient(shoot.x,shoot.y,shoot.x-len,shoot.y-len*.5);g.addColorStop(0,'rgba('+blue+',1)');g.addColorStop(1,'rgba('+blue+',0)');cx.lineCap='round';cx.strokeStyle=g;cx.lineWidth=2.4;cx.beginPath();cx.moveTo(shoot.x,shoot.y);cx.lineTo(shoot.x-len,shoot.y-len*.5);cx.stroke();cx.lineWidth=.9;cx.strokeStyle='rgba('+blue+',.5)';cx.beginPath();cx.moveTo(shoot.x,shoot.y);cx.lineTo(shoot.x-len*1.4,shoot.y-len*.7);cx.stroke();shoot.x+=11;shoot.y+=5.5;if(++shoot.l>62)shoot=null}requestAnimationFrame(draw)}}
 size();draw(0);if(!reduce)requestAnimationFrame(draw);
 addEventListener('resize',function(){size();if(reduce)draw(0)});
