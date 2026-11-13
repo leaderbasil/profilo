@@ -35,7 +35,7 @@
 <link rel="preload" as="image" href="assets/portrait.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/site.css?v=31">
+<link rel="stylesheet" href="assets/site.css?v=32">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light')}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
@@ -185,7 +185,7 @@
 <p class="loc ent" style="--e:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.2-6.5-10a6.5 6.5 0 0 1 13 0c0 4.8-6.5 10-6.5 10z"/><circle cx="12" cy="10.6" r="2.3"/></svg>Amman, Jordan</p>
 <h1 class="ent" style="--e:1">Hi, I'm Basil Ayyad.</h1>
 <p class="role ent" style="--e:2">Backend · AI Agents · ERP Systems</p>
-<p class="lead ent" id="heroLead" style="--e:3">I am a Backend Engineer specializing in Python. I&nbsp;build RESTful APIs, asynchronous services, and integrations between backend systems and web, desktop, and mobile applications.<span class="lp" style="--i:0">I contributed to the development of PolarisX, a custom ERP platform comprising seven modules, working across the stack from data modeling and backend architecture to production deployment. I also designed Arjan, an AI assisted clinic management platform, as my graduation project.</span><span class="lp" style="--i:1">My engineering approach emphasizes clean architecture, maintainable code, and sound technical decisions that support system reliability, scalability, and long term evolution.</span></p>
+<p class="lead ent" id="heroLead" style="--e:3">I am a Backend Engineer specializing in Python. I&nbsp;build RESTful APIs, asynchronous services, and integrations between backend systems and web, desktop, and mobile applications.<span class="lp" style="--i:0"><span class="lpi">I contributed to the development of PolarisX, a custom ERP platform comprising seven modules, working across the stack from data modeling and backend architecture to production deployment. I also designed Arjan, an AI assisted clinic management platform, as my graduation project.</span></span><span class="lp" style="--i:1"><span class="lpi">My engineering approach emphasizes clean architecture, maintainable code, and sound technical decisions that support system reliability, scalability, and long term evolution.</span></span></p>
 <div class="cta ent" style="--e:4">
 <button id="rmore" class="rmore" type="button" aria-expanded="false" aria-controls="heroLead"><span>Read more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:16px;height:16px"><path d="m6 9 6 6 6-6"/></svg></button>
 <a class="btn main" id="cv" href="BasilHazem_CV_Backend.pdf?v=3" download="Basil-Ayyad-CV.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:17px;height:17px"><path d="M12 4v10m0 0 4-4m-4 4-4-4"/><path d="M5 19h14"/></svg>Download CV</a>
@@ -440,6 +440,7 @@ btn.addEventListener('click',function(){if(reduce)draw(0)});
 document.querySelectorAll('.ent').forEach(function(e){e.addEventListener('animationend',function h(ev){if(ev.target!==e)return;if(ev.animationName==='riseB'||ev.animationName==='rise'){e.style.willChange=e.classList.contains('avail-float')?'transform':'auto';e.removeEventListener('animationend',h)}})});
 var rm=document.getElementById('rmore'),hl=document.getElementById('heroLead');
 if(rm&&hl){rm.addEventListener('click',function(){var open=hl.classList.toggle('open');rm.classList.toggle('open',open);rm.classList.remove('bounce');void rm.offsetWidth;rm.classList.add('bounce');rm.setAttribute('aria-expanded',open?'true':'false');rm.querySelector('span').textContent=open?'Read less':'Read more'})}
+document.querySelectorAll('.shot img,.phones img').forEach(function(i){function ld(){i.classList.add('ld')}if(i.complete&&i.naturalWidth){ld()}else{i.addEventListener('load',ld,{once:true});i.addEventListener('error',ld,{once:true})}});
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});document.querySelectorAll('.tiles').forEach(function(e){e.classList.add('go')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');x.target.querySelectorAll('.tiles').forEach(function(c){c.classList.add('go')});io.unobserve(x.target)}})},{threshold:.15});
 document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
