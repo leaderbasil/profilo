@@ -457,6 +457,25 @@ document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
 })();
 </script>
 <!-- Analytics: GoatCounter (leaderbasil.goatcounter.com) -->
-<script data-goatcounter="https://leaderbasil.goatcounter.com/count" async src="assets/goatcounter.js?v=1"></script>
+<script>
+(function(){
+var b=document.createElement('div');
+b.className='adsbox ad-banner banner_ads textads pub_300x250';
+b.setAttribute('id','ad-slot-1');
+b.style.cssText='position:absolute;left:-9999px;top:0;width:1px;height:1px;';
+document.body.appendChild(b);
+setTimeout(function(){
+var off=false;
+try{off=b.offsetHeight===0||getComputedStyle(b).display==='none'||getComputedStyle(b).visibility==='hidden'}catch(e){}
+if(b.parentNode)b.parentNode.removeChild(b);
+if(off)return;
+var s=document.createElement('script');
+s.async=true;
+s.setAttribute('data-goatcounter','https://leaderbasil.goatcounter.com/count');
+s.src='assets/goatcounter.js?v=1';
+document.head.appendChild(s);
+},500);
+})();
+</script>
 </body>
 </html>
