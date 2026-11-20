@@ -78,6 +78,9 @@ h2{font:700 clamp(26px,4vw,34px)/1.15 "Bricolage Grotesque",sans-serif;margin:0 
 .work{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .work .card{height:100%;display:flex;flex-direction:column}
 .work .card>a{margin-top:auto;align-self:flex-start}
+.card-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:auto;align-self:flex-start}
+.work-showcase{display:block;width:100%;margin-top:20px}
+.work-showcase .showcase{margin-top:0}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;position:relative;overflow:hidden;isolation:isolate;transition:transform .25s,border-color .25s,box-shadow .25s}
 .card::before{content:"";position:absolute;inset:-8px;z-index:-1;opacity:0;pointer-events:none;filter:blur(3px);transition:opacity .35s ease;background:radial-gradient(120% 120% at 0% 0%,var(--g1),transparent 62%),radial-gradient(120% 120% at 100% 100%,var(--g2),transparent 62%)}
 .card:hover,.card:focus-within{transform:translateY(-4px);border-color:rgba(76,120,246,.55);border-color:color-mix(in srgb,var(--acc) 55%,var(--vio));box-shadow:0 22px 40px -28px rgba(99,102,241,.55)}
